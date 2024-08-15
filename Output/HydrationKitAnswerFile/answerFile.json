@@ -1,0 +1,39 @@
+{
+  "useCurrent": true,
+  "useEpacBaseline": true,
+  "usePciBaseline": true,
+  "outputPath": ".\\Output\\HydrationKitAnswerFile",
+  "epacPrefix": "epac-",
+  "epacSuffix": "",
+  "platform": "github",
+  "pipelineType": "GitHubActions",
+  "pipelinePath": "",
+  "branchingFlow": "github",
+  "scriptType": "module",
+  "epacParentGroupName": "54d665dd-30f1-45c5-a8d5-d6ffcdb518f9",
+  "epacSourceGroupName": "org-id",
+  "pacOwnerId": "5af49c0a-3026-4ef8-9326-588be3f330f7",
+  "initialTenantId": "54d665dd-30f1-45c5-a8d5-d6ffcdb518f9",
+  "managedIdentityLocations": "eastus2",
+  "useCaf": false,
+  "environments": {
+    "tenant01": {
+      "pacSelector": "tenant",
+      "intermediateRootGroupName": "org-id",
+      "initialPolicyScope": "org-id",
+      "tenantId": "54d665dd-30f1-45c5-a8d5-d6ffcdb518f9",
+      "cloud": "AzureCloud",
+      "strategy": "ownedOnly",
+      "keepDfcSecurityAssignments": false
+    },
+    "epac-dev": {
+      "pacSelector": "epac-dev",
+      "intermediateRootGroupName": "epac-org-id",
+      "initialPolicyScope": "epac-org-id",
+      "tenantId": "54d665dd-30f1-45c5-a8d5-d6ffcdb518f9",
+      "cloud": "AzureCloud",
+      "strategy": "ownedOnly",
+      "keepDfcSecurityAssignments": false
+    }
+  }
+}

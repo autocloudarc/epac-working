@@ -1,0 +1,39 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-assignment-schema.json",
+  "nodeName": "/root",
+  "definitionEntry": {
+    "policySetId": "/providers/Microsoft.Authorization/policySetDefinitions/de01d381-bae9-4670-8870-786f89f49e26",
+    "displayName": "Configure SQL VMs and Arc-enabled SQL Servers to install Microsoft Defender for SQL and AMA with a user-defined LA workspace",
+    "nonComplianceMessages": [
+      {
+        "policyDefinitionReferenceId": null,
+        "message": "Microsoft Defender for SQL must be deployed."
+      }
+    ]
+  },
+  "assignment": {
+    "name": "Deploy-MDFC-DefSQL-AMA",
+    "displayName": "Enable Defender for SQL on SQL VMs and Arc-enabled SQL Servers",
+    "description": "Microsoft Defender for SQL collects events from the agents and uses them to provide security alerts and tailored hardening tasks (recommendations)."
+  },
+  "parameters": {
+    "bringYourOwnUserAssignedManagedIdentity": true,
+    "userWorkspaceResourceId": "/subscriptions/8ff0bc40-d483-4e35-be1d-b49568bd9c5f/resourceGroups/rg-management/providers/Microsoft.OperationalInsights/workspaces/log-management",
+    "workspaceRegion": "centralus",
+    "enableCollectionOfSqlQueriesForSecurityResearch": false,
+    "dcrResourceId": "/subscriptions/8ff0bc40-d483-4e35-be1d-b49568bd9c5f/resourceGroups/rg-management/providers/Microsoft.Insights/dataCollectionRules/org-id-dcr-defendersql-prod",
+    "userAssignedIdentityResourceId": "/subscriptions/8ff0bc40-d483-4e35-be1d-b49568bd9c5f/resourceGroups/rg-management/providers/Microsoft.ManagedIdentity/userAssignedIdentities/org-id-uami",
+    "bringYourOwnDcr": true
+  },
+  "scope": {
+    "tenant01": [
+      "/providers/Microsoft.Management/managementGroups/org-id-landing-zones"
+    ],
+    "epac-dev": [
+      "/providers/Microsoft.Management/managementGroups/epac-org-id-landing-zones"
+    ]
+  },
+  "managedIdentityLocations": {
+    "tenant01": "centralus"
+  }
+}

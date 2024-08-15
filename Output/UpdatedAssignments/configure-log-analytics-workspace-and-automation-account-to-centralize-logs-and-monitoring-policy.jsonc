@@ -1,0 +1,40 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-assignment-schema.json",
+  "nodeName": "/root",
+  "definitionEntry": {
+    "policyId": "/providers/Microsoft.Authorization/policyDefinitions/8e3e61b3-0b32-22d5-4edf-55f87fdb5955",
+    "displayName": "Configure Log Analytics workspace and automation account to centralize logs and monitoring",
+    "nonComplianceMessages": [
+      {
+        "policyDefinitionReferenceId": null,
+        "message": "Log Analytics workspace and automation account should be configured to centralize logs and monitoring."
+      }
+    ]
+  },
+  "assignment": {
+    "name": "Deploy-Log-Analytics",
+    "displayName": "Configure Log Analytics workspace and automation account to centralize logs and monitoring",
+    "description": "Deploy resource group containing Log Analytics workspace and linked automation account to centralize logs and monitoring. The automation account is aprerequisite for solutions like Updates and Change Tracking."
+  },
+  "parameters": {
+    "dataRetention": "30",
+    "workspaceRegion": "centralus",
+    "rgName": "rg-management",
+    "automationAccountName": "aa-management",
+    "sku": "pergb2018",
+    "automationRegion": "centralus",
+    "workspaceName": "log-management"
+  },
+  "enforcementMode": "DoNotEnforce",
+  "scope": {
+    "tenant01": [
+      "/providers/Microsoft.Management/managementGroups/org-id-management"
+    ],
+    "epac-dev": [
+      "/providers/Microsoft.Management/managementGroups/epac-org-id-management"
+    ]
+  },
+  "managedIdentityLocations": {
+    "tenant01": "centralus"
+  }
+}
